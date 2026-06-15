@@ -18,6 +18,7 @@ import {
   CalendarDays,
   TrendingUp,
   Star,
+  Download,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -241,6 +242,31 @@ export default function Home() {
     }
   }
 
+  const handleDownload = async () => {
+    try {
+      toast({ title: 'Memproses...', description: 'Menyiapkan file download' })
+      const res = await fetch('/api/download')
+      if (!res.ok) throw new Error('Failed to download')
+
+      const blob = await res.blob()
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'airdrop-tracker-project.zip'
+      document.body.appendChild(a)
+      a.click()
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(a)
+
+      toast({
+        title: 'Download Dimulai! 📦',
+        description: 'File zip sedang diunduh',
+      })
+    } catch {
+      toast({ title: 'Error', description: 'Gagal mendownload file', variant: 'destructive' })
+    }
+  }
+
   const handleDelete = async () => {
     if (!deletingAirdrop) return
 
@@ -300,8 +326,18 @@ export default function Home() {
                 variant="ghost"
                 size="icon"
                 className="rounded-full hover:bg-white/40 text-purple-600"
+                title="Refresh data"
               >
                 <RefreshCw className="h-4 w-4" />
+              </Button>
+              <Button
+                onClick={handleDownload}
+                variant="ghost"
+                size="icon"
+                className="rounded-full hover:bg-white/40 text-purple-600"
+                title="Download project files"
+              >
+                <Download className="h-4 w-4" />
               </Button>
               <Button
                 onClick={handleOpenAdd}

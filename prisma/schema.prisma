@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Airdrop {
+  id        String   @id @default(cuid())
+  name      String
+  deadline  DateTime
+  status    String   @default("belum_klaim") // belum_klaim, sudah_klaim, pending
+  notes     String   @default("")
+  url       String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

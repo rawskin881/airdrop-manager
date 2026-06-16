@@ -305,7 +305,7 @@ export default function Home() {
             <div className="flex items-center gap-3 sm:gap-4">
               <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-white/50 shadow-lg animate-float">
                 <img
-                  src="/anime-mascot.png"
+                  src="/maskot-header.png"
                   alt="Airdrop-chan"
                   className="w-full h-full object-cover"
                 />
@@ -431,7 +431,7 @@ export default function Home() {
               <div className="flex items-start gap-3">
                 <div className="hidden sm:block w-20 h-20 flex-shrink-0 animate-float">
                   <img
-                    src="/anime-reminder.png"
+                    src="/maskot-urgent.png"
                     alt="Reminder-chan"
                     className="w-full h-full object-contain"
                   />
@@ -527,7 +527,7 @@ export default function Home() {
             <CardContent className="p-8 sm:p-12 text-center">
               <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 animate-float">
                 <img
-                  src="/anime-hero.png"
+                  src="/maskot-card.png"
                   alt="No airdrops"
                   className="w-full h-full object-contain"
                 />

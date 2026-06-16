@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: "Dashboard anime-themed untuk mengelola dan mengingatkan airdrop crypto. Jangan sampai kelewat deadline!",
   keywords: ["airdrop", "crypto", "tracker", "dashboard", "reminder"],
   icons: {
-    icon: "/anime-mascot.png",
+    icon: "/maskot-header.png",
   },
 };
 
